@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <?php
   $BDProductos = array( 
-    array(1, 2, 3, 4, 5),                                       //El ID
-    array("Blusa", "Lentes", "Playera", "Pantalón", "Vestido"), //La Descripción
-    array(100, 350, 200, 420, 250),                             //El Precio
-    array("Dama", "Caballero", "Caballero", "Dama", "Dama"));   //Categoría
-  $iProductos = 5; //Indica el No. de Productos
+    array(1, 2, 3, 4, 5, 6, 7),                                       //El ID
+    array("Blusa", "Lentes", "Playera", "Pantalón", "Vestido","tenis","camisa"), //La Descripción
+    array(100, 350, 200, 420, 250, 900,2100),                             //El Precio
+    array("Dama", "Caballero", "Caballero", "Dama", "Dama","Niños","Niños"));   //Categoría
+  $iProductos = 7; //Indica el No. de Productos
 
   $BDAlmacen = array( 
-    array(1, 2, 3, 4, 5), //El IDProducto
-    array(0,10, 5,15, 3)); //Las Existencias
+    array(1, 2, 3, 4, 5, 6, 7), //El IDProducto
+    array(0,10, 5,15, 3, 7,1)); //Las Existencias
 
   $iAlmacen = 2; //El No. de existencias
   $BDVentas = array(
@@ -18,12 +18,13 @@
     array(700, 200)); //El Monto
   $iVentas = 2; //El No. de ventas al momento
 ?>
+
 <html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Software Punto de Venta" content="">
-    <meta name="Gerardo Aguilar" content="">
+    <meta name="Aguilar gracia" content="">
     <title>Inicio | E-Shopper</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -51,9 +52,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +52 618 1200 776</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> +52 618 265 4206</a></li>
 								<li><a href="#"><i class="fa fa-envelope"></i> atencionclientes@gmail.com</a></li>
-								<li><a href="#"><i class="fa fa-name"></i> Cesar Limon Blanco</a></li>
 							</ul>
 						</div>
 					</div>
@@ -138,7 +138,6 @@
 									<p>Software Punto de Venta de Ropa </p>								
 								</div>
 								<div class="col-sm-6">
-
 									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
 									<img src="images/home/pricing.png"  class="pricing" alt="" />
 								</div>
@@ -169,9 +168,10 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title"><a href="#">Damas</a></h4>
-									<h4 class="panel-title"><a href="#">Caballeros</a></h4>
-								</div>
-									<h4 class="panel-title"><a href="#">Categoría 1</a></h4>
+-<h4 class="panel-title"><a href="#">Caballeros</a></h4>
+-<h4 class="panel-title"><a href="#">Niños</a></h4>
+
+									
 								</div>
 							</div>
 						</div><!--/category-products-->
@@ -186,10 +186,24 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Catálogo de Productos</h2>
+						<?php
+   for ($i=0; $i< $iProductos;$i++){      
+?>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 										<div class="productinfo text-center">
+											<?php
+$img = $BDProductos [0][$i];
+?>
+<img src="images/home/<?php echo $img;?>
+.jpg" alt="" width="210" height="180"/>
+<h2>
+<?php echo "$".$BDProductos [2] [$i];?>
+</h2>
+<p> 
+<?php echo $BDProductos [1] [$i];  ?>
+</p>
 											<img src="images/home/product1.jpg" alt="" />
 											<h2>$56</h2>
 											<p>Producto 1</p>
@@ -197,7 +211,11 @@
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
-												<h2>$56</h2>
+												<h2><?php echo "$".$BDProductos [2]
+[$i];?></h2>
+<p><?php echo $BDProductos [1][$i];?></p>
+<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
+												<h2>$57</h2>
 												<p>Producto 1</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
 											</div>
@@ -205,6 +223,7 @@
 								</div>								
 							</div>
 						</div>
+						-<?php } ?>
 						
 					</div><!--features_items-->
 					
@@ -217,37 +236,20 @@
 							<div class="carousel-inner">
 								<div class="item active">	
 									<div class="col-sm-4">
-<div class="product-image-wrapper">
-<div class="single-products">
-<div class="productinfo text-center"> <img src="images/home/
-"·alt=""
->
-recommend1.jpg".
--<h2>$50</h2>
--<p>Producto Esp1</p>
-<a href="#" class=
-"btn-default.add-to-cart"><i class
-="fa fa-shopping-cart"></i>
-Agregar al Carrito</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-									<div class="product-image-wrapper">
-										<div class="single-products">
+										<div class="product-image-wrapper">
+											<div class="single-products">
 												<div class="productinfo text-center">
-<?php
-$img=$BDProductos[0][$i]
-?>
-$img src="images/home/<?php echo $img;".jpg" alt="" whith="210" height="180";
+													<img src="images/home/recommend1.jpg" alt="" />
+													<h2>$567</h2>
+													<p>Producto Esp 1</p>
+													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
 
-<?php echo " $" . $BDProductos[2][$i];
-?>
-"
-<p><?php echo "$ " . $BDProductos[1][$i];
-	?>
-	<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
+
+													<img src="images/home/recommend1.jpg" alt="" />
+													<h2>$312</h2>
+													<p>Producto Esp 2</p>
+													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al Carrito</a>
+
 												</div>
 												
 											</div>
